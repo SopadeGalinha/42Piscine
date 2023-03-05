@@ -46,14 +46,14 @@ void    print_combn(int n, int index, int tab[], int c_position)
 
 void    ft_print_combn(int n)
 {
+    if (n < 1 || n > 9)
+        return ;
     int tab[n];
     print_combn(n, 0, tab, 0);
     ft_putchar('\n');
 }
-
-/*
+/**/
 int main(void)
 {
-    ft_print_combn(3);
+    ft_print_combn(2);
 }
-*/

@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 15:54:32 by jhogonca          #+#    #+#             */
-/*   Updated: 2023/03/05 15:54:32 by jhogonca         ###   ########lyon.fr   */
+/*   Created: 2023/03/07 23:37:10 by jhogonca          #+#    #+#             */
+/*   Updated: 2023/03/07 23:37:10 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-// • Create a function that takes a pointer to int as a parameter, and sets the value "42"
-// to that int.
+// • Create a function that counts and returns the number of characters in a string.
 
-#include <stdio.h>
+#include<stdio.h>
 
-void ft_ft(int *nbr)
+int ft_strlen(char *str)
 {
-    *nbr = 42;
+    int i;
+
+    i = 0;
+    while (*str++)
+        i++;
+    return (i);
 }
 
-/*
 int main(void)
 {
-    int n;
-    int *nb;
-
-    n = 7;
-    nb = &n;
-    ft_ft(nb);
-    printf(":%d: ", n);
-    return 0;
+    printf("%d", ft_strlen("Sopa"));
+    return (0);
 }
-*/

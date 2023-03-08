@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 15:54:32 by jhogonca          #+#    #+#             */
-/*   Updated: 2023/03/05 15:54:32 by jhogonca         ###   ########lyon.fr   */
+/*   Created: 2023/03/07 22:46:29 by jhogonca          #+#    #+#             */
+/*   Updated: 2023/03/07 22:46:29 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-// • Create a function that takes a pointer to int as a parameter, and sets the value "42"
-// to that int.
+// • Create a function that swaps the value of two integers whose addresses are entered
+// as parameters.
 
-#include <stdio.h>
+#include<stdio.h>
 
-void ft_ft(int *nbr)
+void	ft_swap(int *a, int *b)
 {
-    *nbr = 42;
+	int	swap;
+
+	swap = *a;
+	*a = *b;
+	*b = swap;
 }
 
 /*
-int main(void)
+int		main(void)
 {
-    int n;
-    int *nb;
+	int i  = 7;
+	int j  = 3;
 
-    n = 7;
-    nb = &n;
-    ft_ft(nb);
-    printf(":%d: ", n);
-    return 0;
+	int *a = &i;
+	int *b = &j;
+
+	ft_swap(a, b);
+	printf("a was 7 and now is: %u\n", *a);
+	printf("b was 3 and now is: %u\n", *b);
+    return(0);
 }
 */

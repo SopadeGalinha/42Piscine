@@ -1,1 +1,1 @@
-DO NOT COPY, LEARN!
+Do not copy, learn! 

@@ -52,8 +52,10 @@ void    ft_print_combn(int n)
     print_combn(n, 0, tab, 0);
     ft_putchar('\n');
 }
-/**/
+
+/*
 int main(void)
 {
     ft_print_combn(2);
 }
+*/

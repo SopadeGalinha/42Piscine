@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 07:37:54 by jhogonca          #+#    #+#             */
-/*   Updated: 2023/03/15 07:37:54 by jhogonca         ###   ########lyon.fr   */
+/*   Created: 2023/03/15 21:49:56 by jhogonca          #+#    #+#             */
+/*   Updated: 2023/03/15 21:49:56 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int	ft_str_is_lowercase(char *str)
+char	*ft_strupcase(char *str)
 {
-	while (*str)
-		if (*str < 'a' || *str++ > 'z')
-			return (0);
-	return (1);
-}
+	int	i;
 
+	i = -1;
+	while (str[++i])
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+	return (str);
+}
 /*
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac < 2)
-		return (printf("you need to put something after the exec(a.out).\n"));
-	if (ft_str_is_lowercase(av[1]))
-		printf("Str is lower!\n");
-	else
-		printf("Str is not lowercase\n");
+		return (printf("I need an input my fella\n"));
+	printf(":%s:\n", ft_strupcase(av[1]));
 	return 0;
 }
 */

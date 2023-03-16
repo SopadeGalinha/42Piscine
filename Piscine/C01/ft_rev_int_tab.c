@@ -12,25 +12,24 @@
 
 #include<stdio.h>
 
+void	ft_swap(int *a, int *b)
+{
+	int t;
+
+	t = *a;
+	*a = *b;
+	*b = t;
+}
 void ft_rev_int_tab(int *tab, int size)
 {
 	int	i;
-	int	b;
-	int	swap;
 
-	i = 0;
-	b = size - 1;
-	while (i < (size / 2))
-	{
-		swap = tab[i];
-		tab[i] = tab[b];
-		tab[b] = swap;
-		i++;
-		b--;
-	}
+	i = -1;
+	while (++i < --size)
+		ft_swap(&tab[i], &tab[size]);
 }
 
-/*
+
 int main(void)
 {
     int tab[] = {1, 2, 3, 4, 5, 6, 7};
@@ -46,4 +45,3 @@ int main(void)
     while (i < size)
         printf("[ %d ]", tab[i++]);
 }
-*/

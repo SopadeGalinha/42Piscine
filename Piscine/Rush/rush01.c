@@ -116,21 +116,6 @@ void	ft_check_four_vertical(int board[][4], char **tab)
 	}
 
 }
-/*
-int	ft_cheker_columns(int board[][4], char **tab)
-{
-	int	total;
-	int	i;
-
-	i = -1;
-	while (++i < 4)
-	{
-		if((board[0][0] + board[0][1] + board[0][2] + board[0][3]) == 10)
-
-	}
-	printf("%d",total);
-}
-*/
 
 void	ft_check_four_horizontal(int board[][4], char **tab)
 {
@@ -157,7 +142,6 @@ void	ft_check_four_horizontal(int board[][4], char **tab)
 	}
 
 }
-
 
 void	ft_fillfour(int board[][4], char **tab)
 {
@@ -207,7 +191,11 @@ void	random_solutions(int board[][4], char **tab)
 		if (tab[1][i] == '3' && !ft_verify_cell(board, i, 3, 2))
 			board[3][i] == 1;
 	}
+	
 }
+
+void	ft_interation(int board[][4], char **tab)
+
 
 void	ft_do_the_things(int board[][4], char **tab)
 {
@@ -261,6 +249,7 @@ char	**ft_malloc(char *src)
 	}
 	return (ft_filltab(columns, src));
 }
+
 
 int main(int ac, char **av)
 {

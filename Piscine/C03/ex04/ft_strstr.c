@@ -3,55 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhgoncal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/17 10:01:30 by jhgoncal          #+#    #+#             */
-/*   Updated: 2021/09/19 14:40:59 by jhgoncal         ###   ########.fr       */
+/*   Updated: 2023/03/19 13:43:43 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Reproduce the behavior of the function strstr (man strstr).
+
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int		i;
-	int		j;
-	bool	ndl;
+	int		h;
+	int		n;
 
-	if (to_find[0] == '\0')
+	if (!str || !to_find)
 		return (str);
-	i = 0;
-	while (str[i] != '\0')
+	h = -1;
+	while (str[++h] != '\0')
 	{
-		ndl = true;
-		j = 0;
-		while (to_find[j] != '\0' && ndl)
-		{
-			if (str[i + j] != to_find[j])
-				ndl = false;
-			j++;
-		}
-		if (ndl)
-			return (&str[i]);
-		i++;
+		n = 0;
+		while (str[h + n] != '\0' && str[h + n] == to_find[n])
+			n++;
+		if (to_find[n] == '\0')
+			return (str + n);
 	}
 	return (0);
 }
 /*
-#include <stdio.h>
-
-char *ft_strstr(char *str, char *to_find);
-
-int		main(void)
+int	main(int ac, char **av)
 {
-	char str[] = "012340123456789";
-	char to_find[] = "456";
-
-	printf("STR: %s\nTo FIND:  %s\n", str, to_find);
-	printf("Result: %s\n", ft_strstr(str, to_find));
-
+	if (ac < 2)
+		return (printf("U must put something after './a.out'"));
+	printf("Result: %s\n", strstr(av[1], av[2]));
 	return (0);
 }
 */

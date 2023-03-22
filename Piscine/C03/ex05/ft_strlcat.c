@@ -3,74 +3,60 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhgoncal <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/19 11:42:06 by jhgoncal          #+#    #+#             */
-/*   Updated: 2021/09/21 11:50:01 by jhgoncal         ###   ########.fr       */
+/*   Updated: 2023/03/22 19:06:41 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
+// Reproduce the behavior of the function strlcat (man strlcat)
+
 #include <stdio.h>
 #include <string.h>
-int	counter(char *src)
-{
-	int	c;
-	int	h;
+#include <stdlib.h>
 
-	h = 0;
-	c = 0;
-	while (src[c] != '\0')
-	{
-		h = src[c];
-		c++;		
-	}
-	return (h);
-}
-
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+unsigned int	ft_strlen(const char *s)
 {
 	unsigned int	i;
-	unsigned int	x;
 
 	i = 0;
-	x = counter(src);
-	while (dest[i] != '\0' && i < size)
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+unsigned int	ft_strlcat(char *dest, const char *src, unsigned int size)
+{
+	unsigned int	i;
+	unsigned int	dest_len;
+	unsigned int	src_len;
+
+	i = ft_strlen(dest);
+	dest_len = i;
+	src_len = ft_strlen(src);
+	if (size <= dest_len)
+		return (src_len + size);
+	while (*src != '\0' && i < size - 1)
 	{
-		dest[x] = src[i];
-		x++;
+		dest[i] = *src++;
 		i++;
 	}
-	return (x);
+	dest[i] = '\0';
+	return (dest_len + src_len);
 }
 
-#include <stdio.h>
-#include <string.h>
-
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size);
-
-int				main()
+/*
+int	main(int ac, char **av)
 {
-	char			str0[50];
-	char			str1[50];
-	char			str2[] = "Concatenando 1";
-	unsigned int	tamanho1;
-	unsigned int	tamanho2;
-	int	size;
+	char	*dest;
+	int		c;
 
-	str0[0] = 'O';
-	str0[1] = 'l';
-	str0[2] = 'a';
-	str0[3] = '\0';
-
-	str1[0] = 'O';
-	str1[1] = 'l';
-	str1[2] = 'a';
-	str1[3] = '\0';
-	size = 15;
-
-	tamanho1 = ft_strlcat(str0, str2, 0);
-	tamanho2 = strlcat(str1, str2, 0);
-	printf("String final: %s, Tamanho: %d", str0, tamanho1);
-	printf("\nString final: %s, Tamanho: %d", str1, tamanho2);
-	printf("\n\nOriginal: %s\n O meu: %s", tamanho2(dest, src, size), tamanho1(dest, src, size))
+	if (ac < 2)
+		return (printf("Missing input\n"));
+	c = ft_strlcat(av[1], av[2], atoi(av[3]));
+	printf("%d\n", c);
+	printf("%s\n", av[1]);
+	return (0);
 }
+*/

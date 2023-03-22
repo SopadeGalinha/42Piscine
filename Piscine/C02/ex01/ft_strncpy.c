@@ -1,41 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strcpy.c                                           :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 01:09:44 by jhogonca          #+#    #+#             */
-/*   Updated: 2023/03/15 01:09:44 by jhogonca         ###   ########lyon.fr   */
+/*   Created: 2023/03/15 01:18:16 by jhogonca          #+#    #+#             */
+/*   Updated: 2023/03/15 01:18:16 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-char	*ft_strcpy(char *dest, char *src)
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int i;
+	int	i;
 
 	i = -1;
-	while (src[++i])
+	while (src[++i] && i < n)
 		dest[i] = src[i];
-	dest[i] = '\0';
+	while (i < n)
+		dest[i++] = '\0';
 	return (dest);
 }
 /*
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-    char    dest[20];
-    char    dest_o[20];
-    if (ac < 2)
-        return 0;
-    if (strlen(av[1]) > 20)
-        return (printf("your string is to big, try again"));
-	strcpy(dest_o, av[1]);
-	ft_strcpy(dest, av[1]);
-	printf("ORIGINAL: [%s]\n", dest_o);
-	printf("MINE    : [%s]\n", dest_o);
-	return 0;
+	char	dest[20];
+	char	o_dest[20];
+	
+	if (ac < 2)
+		return (printf("Put something to test dumass"));
+	if (strlen(av[1]) > 20)
+		return (printf("Try a smaller string"));
+	strncpy(o_dest, av[1], atoi(av[2]));	
+	ft_strncpy(dest, av[1], atoi(av[2]));	
+	printf("Original: [%s]\n", o_dest);
+	printf("Mine    : [%s]\n", dest);
+	return (0);
 }
 */

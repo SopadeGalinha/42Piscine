@@ -13,8 +13,9 @@
 #include <stdio.h>
 
 /*
-• Create a function that capitalizes the first letter of each word and transforms all
-other letters to lowercase.
+• Create a function that capitalizes the first 
+  letter of each word and transforms all
+  other letters to lowercase.
 • A word is a string of alphanumeric characters.
 • Here’s how it should be prototyped :
 */

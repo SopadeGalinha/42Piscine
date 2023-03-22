@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhogonca <jhogonca@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/15 21:21:55 by jhogonca          #+#    #+#             */
-/*   Updated: 2023/03/15 21:21:55 by jhogonca         ###   ########lyon.fr   */
+/*   Created: 2023/03/15 07:10:15 by jhogonca          #+#    #+#             */
+/*   Updated: 2023/03/15 07:10:15 by jhogonca         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int ft_str_is_uppercase(char *str)
+int	ft_str_is_alpha(char *str)
 {
-	while (*str)
-		if(*str < 'A' || *str++ > 'Z')
+	int	c;
+
+	c = -1;
+	while (str[++c])
+		if ((str[c] < 'A' || (str[c] > 'z')) || (str[c] > 'Z' && str[c] < 'a'))
 			return (0);
 	return (1);
-
 }
 /*
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	if (ac < 2)
-		return (printf("Hey, put something after the .a.out"));
-	if (ft_str_is_uppercase(av[1]))
-		return (printf("Itss Upper!"));
-	return (printf("Nops"));
+		return (printf("Put something after the executable\n"));
+	if (ft_str_is_alpha(av[1]))
+		printf("Is alpha\n");
+	else
+		printf("Is not alpha\n");
+	return 0;	
 }
 */

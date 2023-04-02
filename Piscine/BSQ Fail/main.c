@@ -3,66 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhogonca <jhogonca@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  rboia-pe@student.42porto.com  <rboia-p    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 04:40:17 by  rboia-pe@s       #+#    #+#             */
-/*   Updated: 2023/03/29 23:37:20 by jhogonca         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:43:35 by  rboia-pe@s      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bsq.h"
 
-#include <unistd.h>
-#include <stdbool.h>
-
-bool check_matrix(char **matrix, int n) {
-    int i = 0;
-    int first_len = -1;
-    while (i < n)
-    {
-        int len = ft_strlen(matrix[i]);
-        if (first_len == -1)
-        {
-            first_len = len;
-        } else if (first_len != len)
-        {
-            return false;
-        }
-        i++;
-    }
-    return true;
-}
-
-#include "bsq.h"
-
 int main(int argc, char **argv)
 {
-	int i = -1;
-	int	x;
-	int	y;
-	int	density;
-	int xy[2];
-	char	**grid;
-	char **grid_temp;
+  int i = -1;
+  int  j;
+  int  density;
+  int xy[2];
+  char  **grid;
+  char **grid_temp;
 
-	if (argc == 1)
-		return (0);
-    x = ft_atoi(argv[1]);
-    y = x;
-    xy[0] = x;
-    xy[1] = y;
+  if (argc == 1)
+    write (1, "Error\n", 6);
+  else if (argc == 2)
+  {
+    xy[0] = 10;
+    xy[1] = 10;
+  }
+  else
+  {
+    xy[0] = ft_atoi(argv[1]) + 1;
+    xy[1] = xy[0];
+  }
     grid = (char **) malloc(xy[1] * sizeof(char *));
+    if (grid == NULL)
+    {
+      write (1, "Error\n", 6);
+      exit (2);
+    }
     grid_temp = (char **) malloc(xy[1] * sizeof(char *));
+    if (grid_temp == NULL)
+    {
+      write (1, "Error\n", 6);
+      exit (2);
+    }
     while (++i < xy[1])
     {
-		  grid[i] = (char *) malloc(xy[0] * sizeof(char));
+      grid[i] = (char *) malloc(xy[0] * sizeof(char));
+      if (grid[i] == NULL)
+      {
+        write (1, "Error\n", 6);
+        exit (2);
+      }
       grid_temp[i] = (char *) malloc(xy[0] * sizeof(char));
+      if (grid_temp[i] == NULL)
+      {
+        write (1, "Error\n", 6);
+        exit (2);
+      }
     }
-    grid = ft_read_txt(grid_temp, x, argv, argc);
+    ft_read_txt(grid_temp, xy, argv, argc);
+    i = 0;
+    while(++i < xy[0])
+    {
+      j = -1;
+      while(j++ < xy[1] - 1)
+        grid[i - 1][j] = grid_temp[i][j];
+    }
+    ft_print_grid(grid, xy[1], xy[0]);
+    ft_find_largest_square(grid, xy[0], xy[1]);
     i = -1;
-	if (!check_matrix(grid, x))
-		return (0);	
-	ft_print_grid(grid, y, x);
-	ft_find_largest_square(grid, x, y);
+    while (++i < xy[1])
+        free(grid_temp[i]);
+    free(grid_temp);
     return (0);
 }

@@ -38,6 +38,6 @@ fclean: clean
 re: fclean all
 
 perl:
-	perl *.pl 10 5 > map.txt
-	
+	perl *.pl 50 10 > map_50.txt
+
 .PHONY: all clean fclean re norm

@@ -1,4 +1,4 @@
-**Project Title: BSQ: Uncovering the Maximum Square**
+"**Project Title: BSQ: Uncovering the Maximum Square**
 
 The "BSQ" project, short for "Uncovering the Maximum Square," presents an intellectually stimulating programming challenge meticulously designed to elevate participants' problem-solving capabilities and refine their algorithmic prowess. 
 This project is an integral component of programming curriculum courses, offering participants the opportunity to delve into the realm of efficiently identifying the largest expanse of unobstructed space within a grid, 
@@ -18,4 +18,4 @@ that can be contained within the constraints of the grid. The ultimate goal is t
 - Dynamic Programming Delve: Gain profound insights into the realm of dynamic programming and its pragmatic applications in tackling real-world conundrums.
 - Code Mastery: Refine coding finesse by adeptly manipulating data structures in a grid-based context, refining code organization and readability.
 - File Manipulation Expertise: Acquire hands-on experience in the art of handling file inputs and outputs, an invaluable skill in software development.
-- Collaborative Synergy: Cultivate teamwork dynamics by collaborating with peers to collectively innovate and troubleshoot solutions.
+- Collaborative Synergy: Cultivate teamwork dynamics by collaborating with peers to collectively innovate and troubleshoot solutions."

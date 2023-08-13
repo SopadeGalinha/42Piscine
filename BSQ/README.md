@@ -1,3 +1,5 @@
+<div align="left">
+
 "**Project Title: BSQ: Uncovering the Maximum Square**
 
 The "BSQ" project, short for "Uncovering the Maximum Square," presents an intellectually stimulating programming challenge meticulously designed to elevate participants' problem-solving capabilities and refine their algorithmic prowess. 
@@ -19,3 +21,5 @@ that can be contained within the constraints of the grid. The ultimate goal is t
 - Code Mastery: Refine coding finesse by adeptly manipulating data structures in a grid-based context, refining code organization and readability.
 - File Manipulation Expertise: Acquire hands-on experience in the art of handling file inputs and outputs, an invaluable skill in software development.
 - Collaborative Synergy: Cultivate teamwork dynamics by collaborating with peers to collectively innovate and troubleshoot solutions."
+
+</div>
